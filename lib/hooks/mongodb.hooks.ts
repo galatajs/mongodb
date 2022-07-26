@@ -1,20 +1,18 @@
-import { App, ModuleRegisterer, warn } from "@istanbul/app";
-import { MongoClient } from "mongodb";
+import { App } from "@istanbul/app";
+import { MongoClient, MongoClientOptions } from "mongodb";
 import {
   MongodbApp,
   MongodbAppCreator,
-  MongodbCollectionRegisterer,
   MongodbOptions,
 } from "../app/mongodb.app";
-import {
-  MongodbClientStore,
-  MongodbCollectionKey,
-} from "../types/mongodb.types";
+import { MongodbClientStore } from "../types/mongodb.types";
 
-const clientStore: Map<number, MongodbClientStore> = new Map();
+export const clientStore: Map<number, MongodbClientStore> = new Map();
 
-const makeDefaultCollectionKey = (key: string): string => {
-  return key + " Collection";
+const transformOptionsToMongoOptions = (
+  options: MongodbOptions
+): MongoClientOptions => {
+  return Object.assign({}, options, { url: undefined, database: undefined });
 };
 
 export const createMongodbApp: MongodbAppCreator = (
@@ -27,7 +25,10 @@ export const createMongodbApp: MongodbAppCreator = (
         name: "mongodb",
         version: "0.0.1",
         install: async (app: App) => {
-          this.client = new MongoClient(options.url, options);
+          this.client = new MongoClient(
+            options.url,
+            transformOptionsToMongoOptions(options)
+          );
           await this.client.connect();
           if (clientStore.has(clientStore.size)) {
             const stored = clientStore.get(clientStore.size);
@@ -41,33 +42,5 @@ export const createMongodbApp: MongodbAppCreator = (
         },
       };
     },
-  };
-};
-
-export const registerCollection: MongodbCollectionRegisterer = (
-  params: string | MongodbCollectionKey,
-  clientNumber: number = 1
-): ModuleRegisterer => {
-  if (clientStore.has(clientNumber)) {
-    const client = clientStore.get(clientNumber);
-    if (typeof params === "string") {
-      client!.selectedCollectionKeys.push({
-        key: params,
-        provider: makeDefaultCollectionKey(params),
-      });
-    } else {
-      client!.selectedCollectionKeys.push({
-        key: params.key,
-        provider: params.provider,
-      });
-    }
-  } else {
-    warn(`Mongodb client with number ${clientNumber} is not found.`);
-  }
-  return {
-    key:
-      typeof params === "string"
-        ? makeDefaultCollectionKey(params)
-        : params.provider,
   };
 };

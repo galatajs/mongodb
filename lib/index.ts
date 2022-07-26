@@ -4,6 +4,7 @@
  * MIT Licensed
  */
 
-export * from "./hooks/mongodb.hooks";
+export { createMongodbApp } from "./hooks/mongodb.hooks";
+export * from "./hooks/mongodb-collection.hooks";
 export * from "./app/mongodb.app";
 export { MongodbCollectionKey } from "./types/mongodb.types";

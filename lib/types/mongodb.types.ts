@@ -1,5 +1,3 @@
-import { MongoClient } from "mongodb";
-
 export type MongodbCollectionKey = {
   key: string;
   provider: string;
