@@ -6,3 +6,4 @@
 
 export * from "./hooks/mongodb.hooks";
 export * from "./app/mongodb.app";
+export { MongodbCollectionKey } from "./types/mongodb.types";
