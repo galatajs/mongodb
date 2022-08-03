@@ -1,6 +1,6 @@
 {
   "name": "@istanbul/mongodb",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Mongodb package of istanbul framework",
   "homepage": "https://github.com/istanbulnode/mongodb#readme",
   "keywords": [
@@ -20,7 +20,8 @@
     "url": "https://github.com/istanbulnode/mongodb/issues"
   },
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "tests"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -33,7 +34,7 @@
     "build": "npm run clear && tsc"
   },
   "dependencies": {
-    "@istanbul/app": "^0.0.17"
+    "@istanbul/app": "^0.0.27"
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",

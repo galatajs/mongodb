@@ -21,6 +21,7 @@ export const createMongodbApp: MongodbAppCreator = (
   return {
     client: undefined,
     build() {
+      const self = this;
       return {
         name: "mongodb",
         version: "0.0.1",
@@ -39,6 +40,9 @@ export const createMongodbApp: MongodbAppCreator = (
               app.store.provide(entity.provider, collection);
             }
           }
+        },
+        close() {
+          self.client!.close();
         },
       };
     },
