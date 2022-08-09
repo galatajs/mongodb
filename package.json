@@ -1,6 +1,6 @@
 {
   "name": "@istanbul/mongodb",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Mongodb package of istanbul framework",
   "homepage": "https://github.com/istanbulnode/mongodb#readme",
   "keywords": [
@@ -34,7 +34,7 @@
     "build": "npm run clear && tsc"
   },
   "dependencies": {
-    "@istanbul/app": "^0.0.27"
+    "@istanbul/app": "^0.0.29"
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",
