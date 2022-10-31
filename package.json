@@ -1,12 +1,10 @@
 {
-  "name": "@istanbul/mongodb",
-  "version": "0.0.5",
-  "description": "Mongodb package of istanbul framework",
-  "homepage": "https://github.com/istanbulnode/mongodb#readme",
+  "name": "@galatajs/mongodb",
+  "version": "0.1.1",
+  "description": "Mongodb package of galatajs framework",
+  "homepage": "https://github.com/galatajs/mongodb#readme",
   "keywords": [
     "typescript",
-    "istanbul",
-    "istanbuljs",
     "mongodb",
     "nosql"
   ],
@@ -14,10 +12,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/istanbulnode/mongodb.git"
+    "url": "git+https://github.com/galatajs/mongodb.git"
   },
   "bugs": {
-    "url": "https://github.com/istanbulnode/mongodb/issues"
+    "url": "https://github.com/galatajs/mongodb/issues"
   },
   "directories": {
     "lib": "lib",
@@ -34,7 +32,7 @@
     "build": "npm run clear && tsc"
   },
   "dependencies": {
-    "@istanbul/app": "^0.0.33"
+    "@galatajs/app": "^0.1.1"
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",

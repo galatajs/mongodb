@@ -1,9 +1,9 @@
 import { MongoClient, Collection } from "mongodb";
-import { createApp, createModule } from "@istanbul/app";
+import { createApp, createModule } from "@galatajs/app";
 import { createMongodbApp, registerCollection } from "../lib";
 
-describe("Mongodb & Istanbul Integrated tests", () => {
-  it("create a istanbul app and mongodb app, check connection is established", async () => {
+describe("Mongodb & galatajs Integrated tests", () => {
+  it("create a galatajs app and mongodb app, check connection is established", async () => {
     const app = createApp();
     const mongodbApp = createMongodbApp({
       url: "mongodb://localhost:27017",
@@ -14,7 +14,7 @@ describe("Mongodb & Istanbul Integrated tests", () => {
     expect(mongodbApp.build).toBeDefined();
   });
 
-  it("create a istanbul app and register a collection to module", async () => {
+  it("create a galatajs app and register a collection to module", async () => {
     const moduleProvider = (params) => {
       expect(params.testCollection).toBeInstanceOf(Collection);
     };

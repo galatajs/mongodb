@@ -1,4 +1,4 @@
-import { App } from "@istanbul/app";
+import { App } from "@galatajs/app";
 import { MongoClient, MongoClientOptions } from "mongodb";
 import {
   MongodbApp,

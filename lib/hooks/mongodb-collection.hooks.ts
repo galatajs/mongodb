@@ -1,4 +1,4 @@
-import { ModuleRegisterer } from "@istanbul/app";
+import { ModuleRegisterer } from "@galatajs/app";
 import { MongodbCollectionRegisterer } from "../app/mongodb.app";
 import { MongodbCollectionKey } from "../types/mongodb.types";
 import { clientStore } from "./mongodb.hooks";

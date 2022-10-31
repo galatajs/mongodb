@@ -1,4 +1,4 @@
-import { CorePluginCreator, ModuleRegisterer } from "@istanbul/app";
+import { CorePluginCreator, ModuleRegisterer } from "@galatajs/app";
 import { MongoClient, MongoClientOptions } from "mongodb";
 import { MongodbCollectionKey } from "../types/mongodb.types";
 
